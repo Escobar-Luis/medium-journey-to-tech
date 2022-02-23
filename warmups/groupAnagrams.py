@@ -25,3 +25,4 @@ def group_anagrams(strs: List[str]) -> List[List[str]]:
     return list(anagram_map.values())
 
 group_anagrams(["eat" ,"tea", "tan", "ate", "nat", "bat"])
+
