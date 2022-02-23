@@ -1,7 +1,11 @@
 from typing import List
+
 # Binary Search with boundary_index : Boundary_index is updated if similar element found to but not sure if it is the first appearnace
+
 # Idea: Two things to decide while searching, if the element is not it, then disregard that element and everything to its side (in this case left). Other thing is if the element is it, how do we know if it is the first apperance? Well, we save its index in a variable and disregard that element and everything to its side (in this case right) until we exit our for loop when pointers go out of bounds.
+
 # Time Complexity: O(log(n))
+
 def find_boundary(arr: List[bool]) -> int:
     # Create left and right pointers
     left, right = 0, len(arr) - 1
