@@ -1,5 +1,7 @@
 link_to_problem = 'https://leetcode.com/problems/sqrtx/'
-
+# Given an integer we have to find its square root without using a built-in square root function and disregard the decimal places, only return whole integer
+# Meaning find y < Square root of given n, which can be re-written as y^2 < given n
+# Since we are given n, we just have to find the m
 # The problem is equivalent to finding the boundary of elements < n and elements >= n.
 # If we apply a filter of the value * value = n (A.K.A return boolean where value squared = n) then the problem is reduced to finding the last true element in a boolean array.
 
