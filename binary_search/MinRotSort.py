@@ -4,7 +4,7 @@
 # Numbers larger than the last element of the array and numbers smaller than it
 # So we know that the minimum element is at the boundary between these two sections
 # We can apply a filter of being less than the last element to get a boolean array that characterizes the two sections
-# A pattern is reducing problems to a boolean array so we could just find the first true elemnt in a boolean array using a boundary index.
+# A pattern is reducing problems to a boolean array so we could just find the first true elemnt in a boolean array using a boundary index.d
 
 from typing import List
 
