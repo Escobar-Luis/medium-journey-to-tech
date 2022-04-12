@@ -3,16 +3,20 @@ class Node:
         self.val = val
         self.left = left
         self.right = right
+# There are n nodes and n - 1 edges in a tree so if we traverse each once then the total traversal is O(2n - 1) which is O(n).
 # The top part is the logic to add counts to total variable, return value
 # The bottom part is the logic to tranverse through child nodes recomputing new max_sofar, the state being passed down
 def visible_tree_node(root: Node) -> int:
     def dfs(root, max_sofar):
         # If root does NOT exist, return 0 because it will not add to to total amount of visible nodes seen
+        # Boolean: Constant work
         if not root:
             return 0
         #  intialize total to 0
+        # variable assignment: Constant work
         total = 0
         # If the current root value in the iteration is greater than the highest node value seen transversing, then add 1 to our total count
+        # boolean constant
         if root.val >= max_sofar:
             total += 1
         # Recompute the max_sofar by checking if the previous parent node value is higher than current node value using max method
