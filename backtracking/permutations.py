@@ -27,5 +27,9 @@ def permutations(letters):
             used[i] = False
 
     res = []
+    # we multiply false by the length of the letters so we set all letters in used as false
+    # so when we ask the question if used[i]
     dfs([], [False] * len(letters), res)
     return res
+
+permutations('ab')
