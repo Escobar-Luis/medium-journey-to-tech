@@ -20,7 +20,7 @@ def flood_fill(r: int, c: int, replacement: int, image: List[List[int]]) -> List
             neighbor_col = col + delta_col[i]
             # Make sure calculated neigbor row and column is inbound by neighbor being 0 or greater and less than the num of rows & columns
             if 0 <= neighbor_row < num_rows and 0 <= neighbor_col < num_cols:
-                # If inbound, is the color of square diffent from the replacement by equating it to root node color?
+                # If inbound, is the color (i.e integer value) of square different from the replacement by equating it to root node original integer?
                 if image[neighbor_row][neighbor_col] == color:
                     # If so yield it, not return it so it doesn't exit execution
                     yield neighbor_row, neighbor_col
@@ -31,7 +31,7 @@ def flood_fill(r: int, c: int, replacement: int, image: List[List[int]]) -> List
         visited = [[False for c in range(num_cols)] for r in range(num_rows)]
         # break up the root into row and col
         r, c = root
-        # Get color by using coordinate on image
+        # Get color integer
         color = image[r][c]
         # We start of by replacing the colorof the root
         image[r][c] = replacement # replace root color
