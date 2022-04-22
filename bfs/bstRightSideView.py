@@ -23,6 +23,18 @@ def binary_tree_right_side_view(root: Node) -> List[int]:
         res.append(r)
     return res
             
+def binary_tree_right_side_view_cleaner(root):
+    res = []
+    queue = deque([root]) # at least one element in the queue to kick start bfs
+    while len(queue) > 0: # as long as there is element in the queue
+        n = len(queue) # number of nodes in current level
+        res.append(queue[0].val) # only append the first node we encounter since it's the rightmost
+        for _ in range(n): # dequeue each node in the current level
+            node = queue.popleft()
+            for child in [node.right, node.left]: # we add right children first so it'll pop out of the queue first
+                if child is not None:
+                    queue.append(child)
+    return res
 
 def build_tree(nodes, f):
     val = next(nodes)
