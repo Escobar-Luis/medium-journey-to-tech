@@ -11,7 +11,7 @@ def maxArea(self, height: List[int]) -> int:
             # if our left pointer is less than our right pointer, increment the left
             if height[l] < height[r]:
                 l += 1
-            # if the right pointer is less than or equal to left pointer, decrement the right
+            # if the right pointer is less than or equal to left pointer, decrement the rights
             elif height[r] <= height[l]:
                 r -= 1
         return res
