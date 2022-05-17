@@ -1,7 +1,7 @@
 from collections import deque
 from typing import List
 
-# This is a helper function to find out how many times a task(parent) is required(other nodes point to it)
+# This is a helper function to find out how many times a task(parent) is required(other nodes point to itf)
 # In this scenario, b is being pointed by 2 other nodes
 def count_parents(graph):
     # im creating a new hash using the keys in my task hash as keys again but setting their value to 0 as starting value for counter
