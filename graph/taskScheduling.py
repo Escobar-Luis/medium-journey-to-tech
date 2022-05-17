@@ -1,7 +1,7 @@
 from collections import deque
 from typing import List
 
-# This is a helper function to find out how many times a task(parent) is required(other nodes point to itf)
+# This is a helper function to find out how many times a task(parent) is required(other nodes point to it)
 # In this scenario, b is being pointed by 2 other nodes
 def count_parents(graph):
     # im creating a new hash using the keys in my task hash as keys again but setting their value to 0 as starting value for counter
@@ -47,3 +47,34 @@ tasks = ["a", "b", "c", "d"]
 requirements = [["a", "b"], ["c", "b"], ["b", "d"]]
 
 task_scheduling(tasks,requirements)
+
+def task_schedule(tasks: List[str], requirements: List[List[str]]) -> List[str]:
+    def count(graph):
+        counts = {node:0 for node in graph}
+        #How may times this node is a child to a parent
+        for node in counts:
+            for requirement in graph[node]:
+                counts[requirement] +=1
+        return counts
+    
+    def sort(graph):
+        res = []
+        q = deque()
+        counts = count(graph)
+        for node in counts:
+            if counts[node] == 0:
+                q.append(node)
+        while q:
+            node = q.popleft()
+            res.append(node)
+            # decrement the counts all of this nodes children
+            for children in graph[node]:
+                counts[children] -=1
+                if counts[children] == 0:
+                    q.append(children)
+        return res if len(res) == len(graph) else None
+                
+    g = {parent:[] for parent in tasks}
+    for parent, child in requirements:
+        g[parent].append(child)
+    return sort(g)
