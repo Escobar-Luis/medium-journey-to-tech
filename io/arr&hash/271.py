@@ -22,10 +22,12 @@ def decode(str):
         # while we still are at an integer character, we keep incrementing until we get to pound character
         while str[j] != "#":
             j += 1
-        # the length of string will start from index i and not including index j
+        # the length of string will be the number that comes before the pound sign
         length = int(str[i:j])
         # j+1 is the first character in string (skipping delim) to j+1+length of string we calculated
         res.append(str[j + 1 : j + 1 + length])
         # we update i to the beginning of the next string
         i = j + 1 + length
     return res
+
+decode(encode(["lint","code","love","you"]))
