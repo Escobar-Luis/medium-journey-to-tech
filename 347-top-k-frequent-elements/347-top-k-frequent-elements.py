@@ -1,15 +1,17 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-#         Bucket Sort: hash for count, freq arr === size of nums where ind is freq and value is a list of nums appearing that many times, loop backwards through freq arr and for every number at that freq, we append it to our results while len(res)==k
+#         track counts in hash, iterate through hash and get max, append it to res and delete key, and repeat until len(res) == k O(n^2)
+#         track counts in hash, freq arr where the length == len(nums) and the index is frequency and the value at that index is gonna be a list,
         h = {}
-        freq = [[] for i in range(len(nums)+1)]
         for n in nums:
             h[n] = 1 + h.get(n,0)
+        freq = [[] for i in range(len(nums)+1)]
         for n,c in h.items():
             freq[c].append(n)
         res = []
-        for i in range(len(freq)-1,0,-1):
-            for n in freq[i]:
-                res.append(n)
+        for i in range(len(freq) -1,-1,-1):
+            for word in freq[i]:
+                res.append(word)
                 if len(res)==k:
                     return res
+        
