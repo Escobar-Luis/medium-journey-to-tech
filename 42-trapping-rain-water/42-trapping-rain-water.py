@@ -3,15 +3,15 @@ class Solution:
         if not height: return 0
         
         l,r = 0, len(height)-1
-        leftMax, rightMax = height[l], height[r]
-        res =0
+        lm,rm = height[l], height[r]
+        res=0
         while l<r:
-            if leftMax < rightMax:
+            if lm < rm:
                 l+=1
-                leftMax = max(leftMax, height[l])
-                res += leftMax - height[l]
+                lm = max(lm, height[l])
+                res += lm - height[l]
             else:
                 r-=1
-                rightMax = max(rightMax, height[r])
-                res += rightMax - height[r]
+                rm = max(rm, height[r])
+                res+= rm - height[r]
         return res
