@@ -14,10 +14,10 @@ class Solution(object):
             l,r = i+1, len(nums)-1
             while l<r:
                 s = v + nums[l] + nums[r]
-                if s>0:
-                    r-=1
-                elif s<0:
+                if s<0:
                     l+=1
+                elif s>0:
+                    r-=1
                 else:
                     res.append([v,nums[l],nums[r]])
                     l+=1
