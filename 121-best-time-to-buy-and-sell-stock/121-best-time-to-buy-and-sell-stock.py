@@ -1,13 +1,13 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-#         Sliding Window with 2 pointers
-        l,r = 0,1
-        maxP = 0
-        while r< len(prices):
-            if prices[l]< prices[r]:
-                profit = prices[r]-prices[l]
-                maxP = max(maxP, profit)
+        l,r = 0 , 1
+        mp = 0
+        while r < len(prices):
+            p = prices[r]-prices[l]
+            mp = max(mp,p)
+            if prices[r]<prices[l]:
+                l=r
+                r=l+1
             else:
-                l = r
-            r +=1
-        return maxP
+                r+=1
+        return mp
