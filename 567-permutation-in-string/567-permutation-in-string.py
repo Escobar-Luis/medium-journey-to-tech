@@ -5,33 +5,37 @@ class Solution(object):
         :type s2: str
         :rtype: bool
         """
-        if len(s1)> len(s2): return False
+        if len(s2)< len(s1): return False
         
-        s1Count, s2Count = [0]*26, [0]*26
+        #Get counts using hash
+        h1 = [0] *26
+        h2 =[0]*26
+        
         for i in range(len(s1)):
-            s1Count[ord(s1[i]) - ord('a')] += 1
-            s2Count[ord(s2[i]) - ord('a')] +=1
-            
+            h1[ord(s1[i]) -ord('a')] +=1
+            h2[ord(s2[i]) -ord('a')] +=1
+        
+#       save us from comparing each variable in our count arrays
         matches = 0
         for i in range(26):
-            matches += (1 if s1Count[i] == s2Count[i] else 0)
-        
+            matches += (1 if h1[i]==h2[i] else 0)
+#       every pass we find the index of the new char for both pointers, iterate its count in their perspective hash, and ask if the counts between them match to update our match counter variable
         l = 0
         for r in range(len(s1),len(s2)):
             if matches == 26: return True
             
             index = ord(s2[r]) - ord('a')
-            s2Count[index] +=1
-            if s1Count[index] == s2Count[index]:
+            h2[index] += 1
+            if h2[index] == h1[index]:
                 matches +=1
-            elif s1Count[index] + 1 == s2Count[index]:
+            elif h2[index] == h1[index] +1:
                 matches -=1
-                
+            
             index = ord(s2[l]) - ord('a')
-            s2Count[index] -= 1
-            if s1Count[index] == s2Count[index]:
+            h2[index] -= 1
+            if h2[index] == h1[index]:
                 matches +=1
-            elif s1Count[index] -1 == s2Count[index]:
+            elif h2[index] == h1[index] -1:
                 matches -=1
             l+=1
         return matches == 26
