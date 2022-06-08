@@ -3,8 +3,8 @@ class Solution:
         s = []
         res = []
         
-        def b (o,c):
-            if o==c==n:
+        def b(o,c):
+            if o ==c==n:
                 res.append(''.join(s))
                 return
             if o<n:
@@ -15,6 +15,5 @@ class Solution:
                 s.append(')')
                 b(o,c+1)
                 s.pop()
-        
         b(0,0)
-        return res
+        return res            
