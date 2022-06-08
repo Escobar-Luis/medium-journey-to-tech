@@ -5,7 +5,7 @@ class Solution:
         
         for i,v in enumerate(temperatures):
             while s and v > s[-1][0]:
-                t,si = s.pop()
-                r[si] = (i - si)
+                t, si = s.pop()
+                r[si] = i-si
             s.append([v,i])
         return r
