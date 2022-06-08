@@ -14,5 +14,5 @@ class Solution:
                 s.append(int(b/a))
             else:
                 s.append(int(c))
-        return s[0]
+        return s[-1]
                 
