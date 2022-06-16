@@ -12,12 +12,12 @@ class Solution(object):
             l,r = i+1, len(nums)-1
             while l<r:
                 s = v + nums[l] + nums[r]
-                if s>0:
+                if s > 0:
                     r-=1
                 elif s<0:
                     l+=1
                 else:
-                    res.append([v,nums[l], nums[r]])
+                    res.append([v, nums[l], nums[r]])
                     l+=1
                     while nums[l] == nums[l-1] and l<r:
                         l+=1
