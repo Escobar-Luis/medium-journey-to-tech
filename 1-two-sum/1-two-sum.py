@@ -5,10 +5,9 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        h={}
-        for i,v in enumerate(nums):
-            n = target-v
-            if n in h:
-                return [i, h[n]]
-            h[v] = i
-        
+        h = {}
+        for i, n in enumerate(nums):
+            need = target-n
+            if need in h:
+                return [h[need], i ]
+            h[n]= i
