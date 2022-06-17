@@ -8,7 +8,8 @@ class Solution:
             
             time =0
             for p in piles:
-                time += ((p-1)//m)+1
+#                 round up
+                time += math.ceil(p/m)
             if time <= h:
                 k = m
                 r = m-1
