@@ -5,40 +5,38 @@ class Solution(object):
         :type s2: str
         :rtype: bool
         """
-        if len(s1)>len(s2): return False
+        if len(s1)> len(s2): return False
         
-        oc = [0] * 26
-        dc = [0] * 26
+        h1 = [0] * 26
+        h2 = [0] * 26
         
-#       populating first counts
         for i in range(len(s1)):
-            oc[ord(s1[i]) - ord('a')] +=1
-            dc[ord(s2[i]) - ord('a')] +=1
-            
+            h1[ord(s1[i]) -ord('a')] +=1
+            h2[ord(s2[i]) -ord('a')] +=1
+        
         matches = 0
         for i in range(26):
-            if oc[i] == dc[i]:
-                matches += 1
-            else:
-                continue
-            
+            matches += 1 if h1[i] == h2[i] else 0
         
         l = 0
-        for r in range(len(s1),len(s2)):
+        for r in range(len(s1), len(s2)):
             if matches == 26: return True
             
             ind = ord(s2[r]) - ord('a')
-            dc[ind] +=1
-            if oc[ind] == dc[ind]:
+            h2[ind]+=1
+            if h1[ind] == h2[ind]:
                 matches +=1
-            elif oc[ind] +1 == dc[ind]:
+            elif h1[ind] +1 == h2[ind]:
                 matches -=1
-                
+            
             ind = ord(s2[l]) - ord('a')
-            dc[ind] -=1
-            if oc[ind] == dc[ind]:
+            h2[ind]-=1
+            if h1[ind] == h2[ind]:
                 matches +=1
-            elif oc[ind] -1 == dc[ind]:
+            elif h1[ind] -1 == h2[ind]:
                 matches -=1
+            
             l+=1
         return matches == 26
+            
+        
