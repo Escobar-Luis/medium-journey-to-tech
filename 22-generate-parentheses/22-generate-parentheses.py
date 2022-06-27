@@ -1,20 +1,19 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         res = []
-        stack = []
+        s = []
         
         def recurse(o,c):
             if o == c == n:
-                res.append(''.join(stack))
+                res.append(''.join(s))
                 return
-            if o< n:
-                stack.append('(')
+            if o <n:
+                s.append('(')
                 recurse(o+1,c)
-                stack.pop()
-            if c<o:
-                stack.append(')')
+                s.pop()
+            if c < o:
+                s.append(')')
                 recurse(o,c+1)
-                stack.pop()
-        
+                s.pop()
         recurse(0,0)
         return res
