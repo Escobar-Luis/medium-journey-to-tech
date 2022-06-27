@@ -1,18 +1,13 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s)!= len(t):
+        if len(s) != len(t):
             return False
-        # o = ''.join(sorted(s))
-        # d = ''.join(sorted(t))
-        # return o == d
-        ho={}
-        hd={}
+        hs = {}
+        ht = {}
         for i in range(len(s)):
-            ho[s[i]]= 1 + ho.get(s[i],0)
-            hd[t[i]]= 1 + hd.get(t[i],0)
-        
-        for n in s:
-            if n not in hd or ho[n] != hd[n]:
+            hs[s[i]] = 1+ hs.get(s[i],0)
+            ht[t[i]] = 1+ ht.get(t[i],0)
+        for c in s:
+            if c not in ht or hs[c] != ht[c]:
                 return False
         return True
-        
