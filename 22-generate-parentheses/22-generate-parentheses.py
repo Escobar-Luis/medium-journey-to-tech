@@ -1,13 +1,12 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        res = []
         s = []
+        res = []
         
         def recurse(o,c):
             if o == c == n:
-                res.append(''.join(s))
-                return
-            if o <n:
+                res.append("".join(s))
+            if o < n:
                 s.append('(')
                 recurse(o+1,c)
                 s.pop()
