@@ -4,11 +4,11 @@ class Solution:
         
         while l<=r:
             m = (l+r)//2
-            if target == nums[m]:
+            if nums[m]== target:
                 return m
-            elif nums[l] <= nums[m]:
+            elif nums[m] >= nums[l]:
                 if target > nums[m] or target < nums[l]:
-                    l = m +1
+                    l = m+1
                 else:
                     r = m-1
             else:
