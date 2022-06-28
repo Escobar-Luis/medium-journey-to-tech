@@ -13,6 +13,4 @@ class Solution:
             newHead = self.reverseList(head.next)
             head.next.next = head
         head.next = None
-        
         return newHead
-            
