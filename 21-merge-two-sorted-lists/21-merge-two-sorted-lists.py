@@ -15,8 +15,9 @@ class Solution:
             else:
                 tail.next = l2
                 l2 = l2.next
+#             update tail during every iteration
             tail = tail.next
-            
+#         if one list is larger, just append it to the end   
         if l1:
             tail.next = l1
         elif l2:
