@@ -8,12 +8,7 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        # Find Middle
-        # Reverse Second Half
-        #Splice second and first half
-        
         slow, fast = head, head
-        
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
