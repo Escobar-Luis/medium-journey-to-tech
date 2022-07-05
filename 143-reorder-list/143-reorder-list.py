@@ -23,7 +23,7 @@ class Solution:
         
         first, second = head, prev
         while second:
-            tmp1, tmp2 = first.next, second.next
+            tmp1,tmp2 = first.next, second.next
             first.next = second
             second.next = tmp1
-            first, second = tmp1, tmp2
+            first,second = tmp1,tmp2
