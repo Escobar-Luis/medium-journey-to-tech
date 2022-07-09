@@ -22,9 +22,9 @@ class Solution:
             prev = second
             second = tmp
         
-        first, second = head, prev
-        while second:
-            tmp1,tmp2 = first.next, second.next
-            first.next = second
-            second.next = tmp1
-            first,second = tmp1,tmp2
+        front, back = head, prev
+        while back:
+            tmp1, tmp2 = front.next, back.next
+            front.next = back
+            back.next = tmp1
+            front, back = tmp1, tmp2
