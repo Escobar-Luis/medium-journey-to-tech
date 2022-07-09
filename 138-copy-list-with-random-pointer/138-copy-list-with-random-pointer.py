@@ -15,7 +15,7 @@ class Solution:
             copy = Node(cur.val)
             h[cur] = copy
             cur = cur.next
-        
+        print(h.values())
         cur = head
         while cur:
             copy = h[cur]
