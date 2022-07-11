@@ -3,7 +3,9 @@ class Solution:
         slow, fast = 0,0
         
         while True:
+#             slow is getting value at index number
             slow = nums[slow]
+#     fast is getting value by using its current value as an index an retrieving that
             fast = nums[nums[fast]]
             if slow== fast:
                 break
