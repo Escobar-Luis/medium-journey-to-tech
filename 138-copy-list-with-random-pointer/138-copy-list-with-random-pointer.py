@@ -1,25 +1,34 @@
 """
 # Definition for a Node.
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x, next=None, random=None):
         self.val = int(x)
         self.next = next
         self.random = random
 """
 
-class Solution:
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        h = {None : None}
+class Solution(object):
+    def copyRandomList(self, head):
+        """
+        :type head: Node
+        :rtype: Node
+        """
+#         Hash to store all nodes and their values
+#         Return that Hash with key as the original head so we have a copy
+
+        copyHash = {None:None}
+        
         cur = head
         while cur:
             copy = Node(cur.val)
-            h[cur] = copy
+            copyHash[cur] = copy
             cur = cur.next
-        print(h.values())
+        
         cur = head
         while cur:
-            copy = h[cur]
-            copy.next = h[cur.next]
-            copy.random = h[cur.random]
+            copy = copyHash[cur]
+            copy.next = copyHash[cur.next]
+            copy.random = copyHash[cur.random]
             cur = cur.next
-        return h[head]
+        
+        return copyHash[head]
