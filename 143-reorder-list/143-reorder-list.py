@@ -1,26 +1,31 @@
 # Definition for singly-linked list.
-# class ListNode:
+# class ListNode(object):
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution:
-    def reorderList(self, head: Optional[ListNode]) -> None:
+class Solution(object):
+    def reorderList(self, head):
         """
-        Do not return anything, modify head in-place instead.
+        :type head: ListNode
+        :rtype: None Do not return anything, modify head in-place instead.
         """
-        slow, fast = head, head
+        # cut in half
+        # I tranverse backwards in 2nd half and normal in first half
+        # We reassign pointers and return the list from start
+        
+        slow, fast = head, head.next
         
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
         
-        second = slow.next
+        cur = slow.next
         prev = slow.next = None
-        while second:
-            tmp = second.next
-            second.next = prev
-            prev = second
-            second = tmp
+        while cur:
+            tmp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = tmp
         
         front, back = head, prev
         while back:
@@ -28,3 +33,5 @@ class Solution:
             front.next = back
             back.next = tmp1
             front, back = tmp1, tmp2
+        
+        
