@@ -9,18 +9,13 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        # tmp variable to save next node
-#         we set current next pointer to prev
-#         reassign prev to current
-#       reassign current to tmp variable
-#       continue this while we have a head
-
-        prev, curr = None, head
-    
-        while curr:
-            tmp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = tmp
+        if not head:
+            return
         
-        return prev
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+        
+        return newHead
