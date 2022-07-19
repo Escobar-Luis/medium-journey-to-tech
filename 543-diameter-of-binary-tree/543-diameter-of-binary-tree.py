@@ -14,11 +14,12 @@ class Solution(object):
         
         def dfs(root):
             if not root:
+#               a null node height is -1 so when we add 1 to it becomes 0
                 return -1
             left = dfs(root.left)
             right = dfs(root.right)
             res[0] = max(res[0],2+left +right)
-            
+#           we add 1 to the max so if we only find one node (height 0), it becomes 1 to take into account the edge coming from parent
             return 1 + max(left, right)
         
         dfs(root)
