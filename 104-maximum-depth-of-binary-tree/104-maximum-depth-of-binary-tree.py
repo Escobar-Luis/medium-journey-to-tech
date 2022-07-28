@@ -10,12 +10,10 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        def dfs(r):
-            if not r:
-                return 0
+        if not root:
+            return 0
 
-            leftCount = self.maxDepth(r.left) +1
-            rightCount = self.maxDepth(r.right) +1
+        leftCount = self.maxDepth(root.left) +1
+        rightCount = self.maxDepth(root.right) +1
 
-            return max(leftCount,rightCount)
-        return dfs(root) 
+        return max(leftCount,rightCount)
