@@ -1,13 +1,17 @@
-class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
         if len(s) != len(t):
             return False
-        hs = {}
-        ht = {}
+        
+        countS, countT = {}, {}
+        
         for i in range(len(s)):
-            hs[s[i]] = 1+ hs.get(s[i],0)
-            ht[t[i]] = 1+ ht.get(t[i],0)
-        for c in hs:
-            if hs[c] != ht.get(c,0):
-                return False
-        return True
+            countS[s[i]] = 1 + countS.get(s[i],0)
+            countT[t[i]] = 1 + countT.get(t[i],0)
+            
+        return countS == countT
