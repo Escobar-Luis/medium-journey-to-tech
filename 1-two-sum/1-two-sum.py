@@ -9,5 +9,5 @@ class Solution(object):
         for i,n in enumerate(nums):
             need = target - n
             if need in h:
-                return [h[need], i] 
+                return [h[need], i]
             h[n] = i
